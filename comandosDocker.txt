@@ -1,0 +1,30 @@
+Comandos docker:
+docker run (nome do container) [executa o container e baixa caso não esteja disponível]
+docker ps [mostra containers ativos]
+docker ps -a [mostra todos os containers, ativos ou não]
+docker run ubuntu echo "Ola Mundo" [executa um comando dentro do container]
+docker run -it ubuntu [atrela o terminal atual ao terminal do container]
+docker start (id do container) [inicia um container]
+docker stop (id do container) [para um container]
+docker prune [deleta todos os containers]
+docker start -a -i (id do container) [Se rodarmos o container, mas passando duas flags: -a, de attach, para integrar os terminais, e -i, de interactive, para interagirmos com o terminal, para podermos escrever nele]
+docker rm (id do container) [Para remover um container, executamos o comando docker rm, passando para ele o id do container a ser removido]
+docker rmi (nome da imagem) [Remove a imagem]
+docker images [mostra as imagens baixadas no sistema]
+docker container prune [limpa todos os containers inativos]
+docker port (id do container) [exibe as portas abertas do container]
+docker inspect (id do container) [exibe todos os caminhos dentro do container]
+docker network create --driver bridge (nome da rede) [cria uma rede]
+
+Flags:
+-d:Detached, o container não fica atrelado ao terminal
+-P:Mapeia as portas do container para comunicação externa, se passado um valor no modelo 8081:8080 ele mapeia a porta 8080 do container para a porta 8081 do computador
+--name:Define um nome para o container
+-e:Seta uma variavel de ambiente no modelo VARIAVEL=valordavariavel
+-q:Quando usado com o docker ps retorna apenas os ids dos conteiners rodando
+-v:Define um volume onde serão persistidos os dados na máquina onde o container está rodando (Exemplo:[docker run -v "C:\Users\rafael.santiago\Documents\:/var/www" ubuntu] tudo o que for criado dentro do caminho /var/www do container será persistido da pasta Documents do computador)
+-w:Working directory, especifica em qual pasta devem ser executados os comandos
+--network: Atrela o container à uma rede criada com o comando docker network create
+
+Macetes:
+usando $(docker ps -q) é possível parar todos os containers funcionando ao mesmo tempo

@@ -1,0 +1,6 @@
+FROM openjdk:11
+COPY /target/zupmicroservices-0.0.1-SNAPSHOT.jar /usr/src/myapp
+WORKDIR /usr/src
+ENV THREAD_WAIT=20000
+RUN java -jar zupmicroservices-0.0.1-SNAPSHOT.jar
+EXPOSE 8080
